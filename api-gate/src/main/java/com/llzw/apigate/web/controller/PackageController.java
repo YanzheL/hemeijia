@@ -3,8 +3,8 @@ package com.llzw.apigate.web.controller;
 import com.llzw.apigate.message.RestResponseEntityFactory;
 import com.llzw.apigate.message.error.RestApiException;
 import com.llzw.apigate.persistence.entity.User;
-import com.llzw.apigate.service.CouponService;
-import com.llzw.apigate.web.dto.CouponCreateDto;
+import com.llzw.apigate.service.PackageService;
+import com.llzw.apigate.web.dto.PackageCreateDto;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,19 +24,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @ResponseBody
 @RequestMapping(value = "${spring.data.rest.base-path}/coupons")
-public class CouponController {
+public class PackageController {
 
   @Setter(onMethod_ = @Autowired)
-  private CouponService couponService;
+  private PackageService packageService;
 
   @PreAuthorize("hasRole('CUSTOMER')")
   @Transactional
   @PostMapping
-  public ResponseEntity create(@RequestBody CouponCreateDto dto) {
+  public ResponseEntity create(@RequestBody PackageCreateDto dto) {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        couponService.create(currentUser, dto.getName(), dto.getPrice(), 1)
+        packageService.create(currentUser, dto.getName(), dto.getPrice(), dto.getCoupPacks())
     );
   }
 
@@ -46,7 +46,7 @@ public class CouponController {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        couponService.search(currentUser, name)
+        packageService.search(currentUser, name)
     );
   }
 
@@ -56,7 +56,7 @@ public class CouponController {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        couponService.get(currentUser, id)
+        packageService.get(currentUser, id)
     );
   }
 }
