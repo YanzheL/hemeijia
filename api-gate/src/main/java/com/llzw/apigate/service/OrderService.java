@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class OrderService {
 
   @Setter(onMethod_ = @Autowired)
@@ -22,7 +23,6 @@ public class OrderService {
   @Setter(onMethod_ = @Autowired)
   private CouponService couponService;
 
-  @Transactional
   public Order create(User customer, String name, Long couponId, String mark, String address)
       throws RestApiException {
     Coupon coupon;
@@ -49,13 +49,5 @@ public class OrderService {
 
   public List<Order> search(User customer) {
     return orderRepository.findAllByCustomer(customer);
-  }
-
-  public Order get(User customer, Long id) throws RestEntityNotFoundException {
-    return orderRepository.findByIdAndCustomer(id, customer)
-        .orElseThrow(() -> new RestEntityNotFoundException(
-            String
-                .format("Coupon <%s> does not exist or you do not have access to this entity", id))
-        );
   }
 }
