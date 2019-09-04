@@ -1,5 +1,6 @@
 package com.llzw.apigate.service;
 
+import com.llzw.apigate.message.error.RestEntityNotFoundException;
 import com.llzw.apigate.persistence.dao.CouponRepository;
 import com.llzw.apigate.persistence.entity.Coupon;
 import com.llzw.apigate.persistence.entity.User;
@@ -31,5 +32,13 @@ public class CouponService {
     } else {
       return couponRepository.findAllByCustomerAndName(customer, name);
     }
+  }
+
+  public Coupon get(User customer, Long id) throws RestEntityNotFoundException {
+    return couponRepository.findByIdAndCustomer(id, customer)
+        .orElseThrow(() -> new RestEntityNotFoundException(
+            String
+                .format("Coupon <%s> does not exist or you do not have access to this entity", id))
+        );
   }
 }
