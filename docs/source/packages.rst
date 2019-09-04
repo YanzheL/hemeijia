@@ -87,6 +87,9 @@ Parameter   Type     Description
 data        Package  创建的Package对象
 =========== ======== ================
 
+.. Note::
+   用户首次购买套餐后会自动变成会员(User.member = true)
+
 查询套餐
 =======
 
