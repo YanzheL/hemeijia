@@ -11,6 +11,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -25,6 +27,7 @@ public class CouponController {
 
   @PreAuthorize("hasRole('CUSTOMER')")
   @Transactional
+  @PostMapping
   public ResponseEntity create(String name, float price) {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
@@ -33,12 +36,12 @@ public class CouponController {
     );
   }
 
-//  @GetMapping
-//  public ResponseEntity search() throws RestApiException {
-//    User currentUser =
-//        ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-//    return RestResponseEntityFactory.success(
-//        couponRepository.findAllByCustomer(currentUser)
-//    );
-//  }
+  @GetMapping
+  public ResponseEntity search(String name) {
+    User currentUser =
+        ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+    return RestResponseEntityFactory.success(
+        couponService.search(currentUser, name)
+    );
+  }
 }

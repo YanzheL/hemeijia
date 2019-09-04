@@ -25,4 +25,11 @@ public class CouponService {
     return couponRepository.saveAll(coupons);
   }
 
+  public Iterable<Coupon> search(User customer, String name) {
+    if (name == null || name.isEmpty()) {
+      return couponRepository.findAllByCustomer(customer);
+    } else {
+      return couponRepository.findAllByCustomerAndName(customer, name);
+    }
+  }
 }
