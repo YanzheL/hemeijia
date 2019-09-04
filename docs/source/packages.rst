@@ -16,7 +16,6 @@ coupons         Coupon[]  所包含的兑换券列表
 createdAt       Date      创建时间
 updatedAt       Date      更新时间
 price           Float     价格
-valid           Boolean   如果套餐内的服务全用完了, 则变为无效状态
 paid            Boolean   是否已付款. 目前默认为True
 =============== ========= ==================================
 
@@ -47,8 +46,7 @@ JSON格式示例
          "name": "管道疏通",
          "valid": true
        }
-     ],
-     "valid": true
+     ]
    }
 
 
