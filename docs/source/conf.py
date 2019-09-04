@@ -18,9 +18,9 @@
 # -- Project information -----------------------------------------------------
 
 __version__ = '1.0'
-project = 'LLZW'
-copyright = '2019, Yanzhe Lee, Xinye Wanyan'
-author = 'Yanzhe Lee, Xinye Wanyan'
+project = 'Hemeijia'
+copyright = '2019, Yanzhe Lee, Xinye Wanyan, Zhijie Zhang'
+author = 'Yanzhe Lee, Xinye Wanyan, Zhijie Zhang'
 
 language = 'en'
 
