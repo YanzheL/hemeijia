@@ -3,8 +3,8 @@ package com.llzw.apigate.web.controller;
 import com.llzw.apigate.message.RestResponseEntityFactory;
 import com.llzw.apigate.message.error.RestApiException;
 import com.llzw.apigate.persistence.entity.User;
-import com.llzw.apigate.service.OrderService;
-import com.llzw.apigate.web.dto.OrderCreateDto;
+import com.llzw.apigate.service.CouponService;
+import com.llzw.apigate.web.dto.CouponCreateDto;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,31 +23,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Validated
 @Controller
 @ResponseBody
-@RequestMapping(value = "${spring.data.rest.base-path}/orders")
-public class OrderController {
+@RequestMapping(value = "${spring.data.rest.base-path}/coupons")
+public class CouponController {
 
   @Setter(onMethod_ = @Autowired)
-  private OrderService orderService;
+  private CouponService couponService;
 
   @PreAuthorize("hasRole('CUSTOMER')")
   @Transactional
   @PostMapping
-  public ResponseEntity create(@RequestBody OrderCreateDto dto) throws RestApiException {
+  public ResponseEntity create(@RequestBody CouponCreateDto dto) {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        orderService
-            .create(currentUser, dto.getName(), dto.getCouponId(), dto.getMark(), dto.getAddress())
+        couponService.create(currentUser, dto.getName(), dto.getPrice(), 1)
     );
   }
 
   @PreAuthorize("hasRole('CUSTOMER')")
   @GetMapping
-  public ResponseEntity search() {
+  public ResponseEntity search(String name) {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        orderService.search(currentUser)
+        couponService.search(currentUser, name)
     );
   }
 
@@ -57,7 +56,7 @@ public class OrderController {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        orderService.get(currentUser, id)
+        couponService.get(currentUser, id)
     );
   }
 }

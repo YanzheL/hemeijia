@@ -4,14 +4,10 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class OrderCreateDto {
-
-  protected Long couponId;
-
-  protected String name;
-
-  protected String mark;
+public class CouponCreateDto {
 
   @NotNull
-  protected String address;
+  protected String name;
+
+  protected float price;
 }

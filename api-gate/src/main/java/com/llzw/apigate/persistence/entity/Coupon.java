@@ -3,6 +3,7 @@ package com.llzw.apigate.persistence.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,38 +17,40 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.search.annotations.Indexed;
+import org.springframework.format.annotation.DateTimeFormat;
 
+@Indexed
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
-public class Order extends BaseEntity {
-
-  private static final long serialVersionUID = 1L;
+public class Coupon extends BaseEntity implements Pricable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Setter(AccessLevel.NONE)
   protected Long id;
 
+  @Column(nullable = false)
+  protected String name;
+
+  protected float price;
+
+  protected boolean paid;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  protected Date usedAt;
+
+  protected boolean valid = true;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "packageId")
+  protected Package pkg;
+
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "customerId")
   @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "username")
   @JsonIdentityReference(alwaysAsId = true)
   protected User customer;
-
-  @Column(nullable = false)
-  protected String address;
-
-  protected Coupon coupon;
-
-  protected String mark;
-
-  protected String comment;
-
-  protected Float rate;
-
-  @Column(nullable = false)
-  protected String status;
-
 }

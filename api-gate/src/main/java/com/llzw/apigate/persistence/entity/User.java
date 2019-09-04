@@ -25,7 +25,6 @@ public class User extends BaseEntity implements UserDetails {
 
   @Id
   @Column(length = 30)
-  @JsonIgnore
   protected String username;
 
   @Column(nullable = false)
@@ -39,11 +38,7 @@ public class User extends BaseEntity implements UserDetails {
 
   @Column(length = 10)
   @NonNull
-  protected String firstName;
-
-  @Column(length = 10)
-  @NonNull
-  protected String lastName;
+  protected String name;
 
   protected boolean enabled;
 
