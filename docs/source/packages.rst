@@ -41,6 +41,11 @@ JSON格式示例
          "id": 2,
          "name": "全屋打扫",
          "valid": true
+       },
+       {
+         "id": 3,
+         "name": "管道疏通",
+         "valid": true
        }
      ],
      "valid": true
@@ -89,11 +94,11 @@ quantity     Integer    True     -         数量
      "services": [
        {
          "name": "全屋打扫",
-         "quantity": 10
+         "quantity": 2
        },
        {
          "name": "管道疏通",
-         "quantity": 5
+         "quantity": 1
        }
      ]
    }
