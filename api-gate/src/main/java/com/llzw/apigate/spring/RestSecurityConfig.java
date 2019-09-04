@@ -83,7 +83,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         .authenticationEntryPoint(restAuthenticationEntryPoint)
         .and()
         .authorizeRequests()
-//        .antMatchers("/login*", "/logout*", "/api/v1/users/register", "/api/v1/product/**")
+//        .antMatchers("/login*", "/logout*", "/api/v1/users/register", "/api/v1/coupon/**")
 //        .permitAll()
         .and()
         .formLogin()
