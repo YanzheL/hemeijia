@@ -12,7 +12,7 @@ Welcome to Hemeijia's documentation!
 
    authentication
    users
-   services
+   coupons
    packages
    orders
    generals
