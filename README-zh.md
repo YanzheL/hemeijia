@@ -6,7 +6,7 @@
 
 ##### 语言: [English](README.md) | 中文
 
-基于 [Spring](https://spring.io/) 和 [Angular](https://angular.io/) 实现的家政服务预订网站
+基于 [Spring](https://spring.io/) 后端实现的家政服务预订微信小程序
 
 此项目后端基于我之前的一个Spring网站[LLZW](https://github.com/YanzheL/llzw)
 

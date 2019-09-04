@@ -6,7 +6,7 @@
 
 ##### Language: English | [中文文档](README-zh.md)
 
-Simple full-stack online housekeeping services site powered by [Spring](https://spring.io/) and [Angular](https://angular.io/)
+Simple WeChat-miniprogram for online housekeeping services powered by [Spring](https://spring.io/)
 
 The backend is based on my previous Spring site [LLZW](https://github.com/YanzheL/llzw)
 
