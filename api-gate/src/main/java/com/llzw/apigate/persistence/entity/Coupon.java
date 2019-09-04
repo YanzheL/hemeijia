@@ -26,9 +26,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
-public class Product extends BaseEntity {
-
-  private static final long serialVersionUID = 1L;
+public class Coupon extends BaseEntity implements Pricable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,8 +39,9 @@ public class Product extends BaseEntity {
   @Lob
   protected String introduction;
 
-  @Column(nullable = false)
   protected float price;
+
+  protected boolean paid;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   protected Date usedAt;
@@ -50,8 +49,8 @@ public class Product extends BaseEntity {
   protected boolean valid = true;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "bundleId")
-  protected Bundle bundle;
+  @JoinColumn(name = "packageId")
+  protected Package pkg;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "customerId")
