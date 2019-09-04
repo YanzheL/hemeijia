@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Validated
 @Controller
 @ResponseBody
-@RequestMapping(value = "${spring.data.rest.base-path}/packages")
+@RequestMapping(value = "${spring.data.rest.base-path}/coupons")
 public class PackageController {
 
   @Setter(onMethod_ = @Autowired)
