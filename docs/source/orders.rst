@@ -14,7 +14,7 @@ customer        String    所属客户的用户名
 mark            String    备注
 createdAt       Date      创建时间
 updatedAt       Date      更新时间
-service         Service   下单的服务
+coupon          Coupon    使用的兑换券
 status          String    订单状态 ["已下单", "已接单", "已出发", "使用中", "已完结", "已取消"]
 address         String    服务地址
 comment         String    服务评价
@@ -31,7 +31,7 @@ JSON格式示例
      "mark": "不要按门铃",
      "createdAt": "2019-10-1 3:00 PM GMT+1:00",
      "updatedAt": "2019-10-1 3:00 PM GMT+1:00",
-     "service": {
+     "coupon": {
        "customer": "xxxxx",
        "name": "全屋打扫",
        "createdAt": "2019-10-1 3:00 PM GMT+1:00",
@@ -64,13 +64,13 @@ HTTP 请求
 Parameter    Type       Required Default   Description
 ============ ========== ======== ========= ================
 name         String     False    null      服务名
-serviceId    Long       False    null      服务ID
+couponId     Long       False    null      兑换券ID
 mark         String     False    null      备注
 address      String     True     -         服务地址
 ============ ========== ======== ========= ================
 
 .. Attention::
-   name和serviceId只能取其一，不能同时为空。如果serviceId为空, 则后台会根据name查找可用的服务。若找到, 则后台会把对应服务的valid设为false,usedAt设为当前时间, 返回成功创建的订单; 若未找到, 则会返回错误.
+   name和couponId只能取其一，不能同时为空。如果couponId为空, 则后台会根据name查找可用的对应服务的兑换券。若找到, 则后台会把兑换券的valid设为false,usedAt设为当前时间, 返回成功创建的订单; 若未找到, 则会返回错误.
 
 响应参数
 -------

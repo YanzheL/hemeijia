@@ -12,7 +12,7 @@ Parameter       Type      Description
 =============== ========= ==================================
 customer        String    所属客户的用户名
 name            String    套餐名
-services        Service[] 所包含的服务列表
+coupons         Coupon[]  所包含的兑换券列表
 createdAt       Date      创建时间
 updatedAt       Date      更新时间
 price           Float     价格
@@ -31,7 +31,7 @@ JSON格式示例
      "createdAt": "2019-10-1 3:00 PM GMT+1:00",
      "updatedAt": "2019-10-1 3:00 PM GMT+1:00",
      "price": 288.0,
-     "services": [
+     "coupons": [
        {
          "id": 1,
          "name": "全屋打扫",
@@ -69,11 +69,11 @@ HTTP 请求
 Parameter    Type       Required Default   Description
 ============ ========== ======== ========= ================
 name         String     True     -         套餐名
-services     ServPack[] True     -         套餐所含服务包列表
+coupons      CoupPack[] True     -         套餐所含服务包列表
 price        Float      True     -         价格
 ============ ========== ======== ========= ================
 
-ServPack类结构
+CoupPack类结构
 -------------
 
 ============ ========== ======== ========= ===========
@@ -91,7 +91,7 @@ quantity     Integer    True     -         数量
    {
      "name": "全屋打扫套餐",
      "price": 288.0,
-     "services": [
+     "coupons": [
        {
          "name": "全屋打扫",
          "quantity": 2
