@@ -37,14 +37,11 @@ public class Package extends BaseEntity implements Pricable {
   @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "username")
   @JsonIdentityReference(alwaysAsId = true)
   protected User customer;
-
   @OneToMany(mappedBy = "pkg")
   protected List<Coupon> coupons;
-
   protected boolean paid;
-
   protected float price;
-
+  protected boolean valid;
   @Column(nullable = false)
   String name;
 

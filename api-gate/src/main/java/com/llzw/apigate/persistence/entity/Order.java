@@ -41,6 +41,8 @@ public class Order extends BaseEntity {
 
   protected Coupon coupon;
 
+  protected float price;
+
   protected String mark;
 
   protected String comment;
