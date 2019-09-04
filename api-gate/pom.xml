@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>api-gate</artifactId>
+  <build>
+    <plugins>
+      <!--      <plugin>-->
+      <!--        <artifactId>maven-resources-plugin</artifactId>-->
+      <!--        <version>2.7</version>-->
+      <!--        <executions>-->
+      <!--          <execution>-->
+      <!--            <id>copy-resources</id>-->
+      <!--            <phase>prepare-package</phase>-->
+      <!--            <goals>-->
+      <!--              <goal>copy-resources</goal>-->
+      <!--            </goals>-->
+      <!--            <configuration>-->
+      <!--              <outputDirectory>-->
+      <!--                ${project.build.outputDirectory}/static/docs-->
+      <!--              </outputDirectory>-->
+      <!--              <resources>-->
+      <!--                <resource>-->
+      <!--                  <directory>-->
+      <!--                    ${project.build.directory}/generated-docs-->
+      <!--                  </directory>-->
+      <!--                </resource>-->
+      <!--              </resources>-->
+      <!--            </configuration>-->
+      <!--          </execution>-->
+      <!--        </executions>-->
+      <!--      </plugin>-->
+      <!--      <plugin>-->
+      <!--        <artifactId>asciidoctor-maven-plugin</artifactId>-->
+      <!--        <dependencies>-->
+      <!--          <dependency>-->
+      <!--            <artifactId>spring-restdocs-asciidoctor</artifactId>-->
+      <!--            <groupId>org.springframework.restdocs</groupId>-->
+      <!--            <version>${spring-restdocs.version}</version>-->
+      <!--          </dependency>-->
+      <!--        </dependencies>-->
+      <!--        <groupId>org.asciidoctor</groupId>-->
+      <!--        <executions>-->
+      <!--          <execution>-->
+      <!--            <id>generate-docs</id>-->
+      <!--            <phase>prepare-package</phase>-->
+      <!--            <goals>-->
+      <!--              <goal>process-asciidoc</goal>-->
+      <!--            </goals>-->
+      <!--            <configuration>-->
+      <!--              <backend>html</backend>-->
+      <!--              <doctype>book</doctype>-->
+      <!--            </configuration>-->
+      <!--          </execution>-->
+      <!--        </executions>-->
+      <!--        <version>1.5.3</version>-->
+      <!--      </plugin>-->
+      <plugin>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <configuration>
+              <additionalProperties>
+                <encoding.source>UTF-8</encoding.source>
+              </additionalProperties>
+            </configuration>
+            <goals>
+              <goal>repackage</goal>
+              <goal>build-info</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>org.springframework.boot</groupId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <groupId>org.junit.platform</groupId>
+            <version>1.3.2</version>
+          </dependency>
+        </dependencies>
+        <version>2.22.1</version>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-cache</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <!--    <dependency>-->
+    <!--      <artifactId>spring-boot-starter-data-rest</artifactId>-->
+    <!--      <groupId>org.springframework.boot</groupId>-->
+    <!--    </dependency>-->
+    <dependency>
+      <artifactId>spring-boot-starter-security</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <!--    <dependency>-->
+    <!--      <artifactId>spring-boot-starter-validation</artifactId>-->
+    <!--      <groupId>org.springframework.boot</groupId>-->
+    <!--    </dependency>-->
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-devtools</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <artifactId>spring-restdocs-mockmvc</artifactId>
+      <groupId>org.springframework.restdocs</groupId>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+    <dependency>
+      <artifactId>junit-jupiter</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.5.0-M1</version>
+    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>org.junit.vintage</groupId>-->
+    <!--      <artifactId>junit-vintage-engine</artifactId>-->
+    <!--      <version>5.5.0-M1</version>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
+    <dependency>
+      <artifactId>spring-security-test</artifactId>
+      <groupId>org.springframework.security</groupId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+    <dependency>
+      <artifactId>validation-api</artifactId>
+      <groupId>javax.validation</groupId>
+      <version>2.0.1.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+    <dependency>
+      <artifactId>hibernate-validator</artifactId>
+      <groupId>org.hibernate.validator</groupId>
+      <version>6.0.16.Final</version>
+    </dependency>
+    <dependency>
+      <artifactId>hibernate-validator-annotation-processor</artifactId>
+      <groupId>org.hibernate.validator</groupId>
+      <version>6.0.16.Final</version>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <artifactId>mysql-connector-java</artifactId>
+      <groupId>mysql</groupId>
+      <version>8.0.15</version>
+    </dependency>
+    <dependency>
+      <artifactId>h2</artifactId>
+      <groupId>com.h2database</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>passay</artifactId>
+      <groupId>org.passay</groupId>
+      <version>${passay.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>guava</artifactId>
+      <groupId>com.google.guava</groupId>
+      <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>tika-core</artifactId>
+      <groupId>org.apache.tika</groupId>
+      <version>1.20</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
+    <dependency>
+      <artifactId>alipay-sdk-java</artifactId>
+      <groupId>com.alipay.sdk</groupId>
+      <version>3.7.26.ALL</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.linkedin.urls/url-detector -->
+    <dependency>
+      <artifactId>url-detector</artifactId>
+      <groupId>com.linkedin.urls</groupId>
+      <version>0.1.17</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5 -->
+    <dependency>
+      <artifactId>jackson-datatype-hibernate5</artifactId>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <version>2.9.8</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm -->
+    <dependency>
+      <artifactId>hibernate-search-orm</artifactId>
+      <groupId>org.hibernate</groupId>
+      <version>5.11.1.Final</version>
+    </dependency>
+  </dependencies>
+  <description>Demo project for Spring Boot</description>
+  <groupId>com.llzw</groupId>
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>api-gate</name>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.2.0.BUILD-SNAPSHOT</version> <!-- lookup parent from repository -->
+  </parent>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <url>https://repo.spring.io/snapshot</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <properties>
+    <guava.version>20.0</guava.version>
+    <java.version>9</java.version>
+    <passay.version>1.0</passay.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!--    <tool.proguard.version>6.0.3</tool.proguard.version>-->
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <url>https://repo.spring.io/snapshot</url>
+    </repository>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+    </repository>
+  </repositories>
+  <version>1.0.0-rc1</version>
+</project>
