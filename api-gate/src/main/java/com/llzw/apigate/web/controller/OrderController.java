@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Validated
 @Controller
 @ResponseBody
-@RequestMapping(value = "${spring.data.rest.base-path}/orders")
+@RequestMapping(value = "${spring.data.rest.base-path}/coupons")
 public class OrderController {
 
   @Setter(onMethod_ = @Autowired)
