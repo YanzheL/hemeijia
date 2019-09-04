@@ -11,11 +11,13 @@ Coupon类结构
 Parameter       Type      Description
 =============== ========= =======================
 customer        String    所属客户的用户名
+pkg             Long      所属的套餐ID(若有)
 name            String    服务名
 createdAt       Date      创建时间
 updatedAt       Date      更新时间
 usedAt          Date      使用时间
 price           Float     价格
+introduction    String    兑换券详情介绍
 valid           Boolean   是否未使用
 paid            Boolean   是否已付款. 目前默认为True
 =============== ========= =======================
