@@ -10,7 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class PackageService {
 
   @Setter(onMethod_ = @Autowired)
@@ -19,6 +22,7 @@ public class PackageService {
   @Setter(onMethod_ = @Autowired)
   private CouponService couponService;
 
+  @Transactional
   public Package create(
       User customer, String name, float price,
       List<CoupPack> coupPacks
