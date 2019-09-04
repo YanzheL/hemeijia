@@ -18,8 +18,6 @@
 
 后端: 正在开发
 
-**在线演示网站:** [https://hemeijia.hitnslab.com:8443](https://hemeijia.hitnslab.com:8443) (国内用户可能无法访问，因为引用了一些Google的JS和图标资源)
-
 ## 持续集成与自动化测试状态
 
 | Branch     | Status                                                    |
