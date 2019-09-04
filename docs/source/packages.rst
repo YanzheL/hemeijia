@@ -78,6 +78,26 @@ name         String     True     -         服务名
 quantity     Integer    True     -         数量
 ============ ========== ======== ========= ===========
 
+请求示例
+-----------
+
+.. code:: json
+
+   {
+     "name": "全屋打扫套餐",
+     "price": 288.0,
+     "services": [
+       {
+         "name": "全屋打扫",
+         "quantity": 10
+       },
+       {
+         "name": "管道疏通",
+         "quantity": 5
+       }
+     ]
+   }
+
 
 响应参数
 -------
