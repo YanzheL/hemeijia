@@ -10,12 +10,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class CouponService {
 
   @Setter(onMethod_ = @Autowired)
   private CouponRepository couponRepository;
 
+  @Transactional
   public List<Coupon> create(User customer, String name, float price, int quantity) {
     List<Coupon> coupons = new ArrayList<>(quantity);
     for (int i = 0; i < quantity; ++i) {

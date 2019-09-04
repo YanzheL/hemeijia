@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class OrderService {
 
   @Setter(onMethod_ = @Autowired)
@@ -23,6 +22,7 @@ public class OrderService {
   @Setter(onMethod_ = @Autowired)
   private CouponService couponService;
 
+  @Transactional
   public Order create(User customer, String name, Long couponId, String mark, String address)
       throws RestApiException {
     Coupon coupon;
