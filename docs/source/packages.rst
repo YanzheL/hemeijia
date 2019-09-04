@@ -69,7 +69,7 @@ HTTP 请求
 Parameter    Type       Required Default   Description
 ============ ========== ======== ========= ================
 name         String     True     -         套餐名
-coupons      CoupPack[] True     -         套餐所含服务包列表
+coupPacks    CoupPack[] True     -         套餐所含服务包列表
 price        Float      True     -         价格
 ============ ========== ======== ========= ================
 
@@ -91,7 +91,7 @@ quantity     Integer    True     -         数量
    {
      "name": "全屋打扫套餐",
      "price": 288.0,
-     "coupons": [
+     "coupPacks": [
        {
          "name": "全屋打扫",
          "quantity": 2
