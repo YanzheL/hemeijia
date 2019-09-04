@@ -2,15 +2,12 @@ package com.llzw.apigate.service;
 
 import com.llzw.apigate.message.error.RestApiException;
 import com.llzw.apigate.message.error.RestEntityNotFoundException;
-import com.llzw.apigate.persistence.dao.BundleRepository;
+import com.llzw.apigate.message.error.RestInvalidParameterException;
 import com.llzw.apigate.persistence.dao.OrderRepository;
-import com.llzw.apigate.persistence.entity.Bundle;
+import com.llzw.apigate.persistence.entity.Coupon;
 import com.llzw.apigate.persistence.entity.Order;
-import com.llzw.apigate.persistence.entity.Product;
 import com.llzw.apigate.persistence.entity.User;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,49 +21,33 @@ public class OrderService {
   private OrderRepository orderRepository;
 
   @Setter(onMethod_ = @Autowired)
-  private ProductService productService;
+  private CouponService couponService;
 
-  @Setter(onMethod_ = @Autowired)
-  private BundleRepository bundleRepository;
-
-  public Order createBundleOrder(User customer, String name, int quantity, float price)
+  public Order create(User customer, String name, Long couponId, String mark, String address)
       throws RestApiException {
-    Order order = new Order();
-    Bundle bundle = new Bundle();
-    bundle.setName(name + "套餐");
-    bundleRepository.save(bundle);
-    for (int i = 0; i < quantity; ++i) {
-      Product product = new Product();
-      product.setName(name);
-      product.setCustomer(customer);
-      product.setBundle(bundle);
-      productService.save(product);
+    Coupon coupon;
+    if (name == null && couponId == null) {
+      throw new RestInvalidParameterException("'name' and 'couponId' cannot both be null");
+    } else {
+      if (couponId != null) {
+        coupon = couponService.get(customer, couponId);
+      } else {
+        coupon = couponService.streamSearch(customer, name).findFirst().get();
+      }
     }
-    order.setBundle(bundle);
-    order.setPrice(price);
-    return orderRepository.save(order);
-  }
-
-  public Order createProductOrder(User customer, String name, float price)
-      throws RestApiException {
+    if (coupon == null) {
+      throw new RestEntityNotFoundException("No coupon found");
+    }
     Order order = new Order();
-    Product product = new Product();
-    product.setName(name);
-    product.setCustomer(customer);
-    productService.save(product);
-    order.setProduct(product);
-    order.setPrice(price);
+    order.setCustomer(customer);
+    order.setAddress(address);
+    order.setMark(mark);
+    order.setCoupon(coupon);
+    order.setStatus("已下单");
     return orderRepository.save(order);
   }
 
-  public List<Order> search(User user) {
-    return orderRepository.findAllByCustomer(user);
-  }
-
-  public Order get(String id, User relatedUser) throws RestApiException {
-    return orderRepository.findByIdAndUser(UUID.fromString(id), relatedUser)
-        .orElseThrow(() -> new RestEntityNotFoundException(
-            String.format("Order <%s> does not exist or you do not have access to this entity", id))
-        );
+  public List<Order> search(User customer) {
+    return orderRepository.findAllByCustomer(customer);
   }
 }
