@@ -3,6 +3,7 @@ package com.llzw.apigate.web.controller;
 import com.llzw.apigate.message.RestResponseEntityFactory;
 import com.llzw.apigate.persistence.entity.User;
 import com.llzw.apigate.service.CouponService;
+import com.llzw.apigate.web.dto.CouponCreateDto;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,11 +30,11 @@ public class CouponController {
   @PreAuthorize("hasRole('CUSTOMER')")
   @Transactional
   @PostMapping
-  public ResponseEntity create(String name, float price) {
+  public ResponseEntity create(@RequestBody CouponCreateDto dto) {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        couponService.create(currentUser, name, price, 1)
+        couponService.create(currentUser, dto.getName(), dto.getPrice(), 1)
     );
   }
 
