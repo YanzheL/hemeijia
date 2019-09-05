@@ -41,6 +41,8 @@ public class User extends BaseEntity implements UserDetails {
 
   protected boolean enabled;
 
+  protected boolean member;
+
   @Override
   public boolean isAccountNonExpired() {
     return true;
