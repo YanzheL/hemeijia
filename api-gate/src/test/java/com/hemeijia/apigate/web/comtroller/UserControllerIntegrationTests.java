@@ -57,6 +57,7 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
   @Test
   @Order(3)
   public void loginCustomer() throws Exception {
+    registerValidCustomer();
     mvc.perform(
         post(apiBasePath + "/login")
             .param("username", "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
@@ -73,7 +74,7 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
     String username = "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs";
     registerUser(
         username,
-        "18900000000",
+        "18600000000",
         "xxx"
     )
         .andDo(print())
@@ -99,6 +100,7 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
   @Test
   @Order(3)
   public void getExistUser() throws Exception {
+    registerValidCustomer();
     mvc.perform(
         get(apiBasePath + "/users")
             .param("username", "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
@@ -106,7 +108,7 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.data.username").value("071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs"))
-        .andExpect(jsonPath("$.data.phoneNumber").value("18900000000"))
+        .andExpect(jsonPath("$.data.phoneNumber").value("18600000000"))
         .andExpect(jsonPath("$.data.member").value(false))
     ;
   }
