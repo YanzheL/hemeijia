@@ -7,20 +7,20 @@
     <plugins>
       <plugin>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <configuration>
-              <additionalProperties>
-                <encoding.source>UTF-8</encoding.source>
-              </additionalProperties>
-            </configuration>
-            <goals>
-              <goal>repackage</goal>
-              <goal>build-info</goal>
-            </goals>
-          </execution>
-        </executions>
         <groupId>org.springframework.boot</groupId>
+        <!--        <executions>-->
+        <!--          <execution>-->
+        <!--            <configuration>-->
+        <!--              <additionalProperties>-->
+        <!--                <encoding.source>UTF-8</encoding.source>-->
+        <!--              </additionalProperties>-->
+        <!--            </configuration>-->
+        <!--            <goals>-->
+        <!--              <goal>repackage</goal>-->
+        <!--              <goal>build-info</goal>-->
+        <!--            </goals>-->
+        <!--          </execution>-->
+        <!--        </executions>-->
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -80,7 +80,13 @@
         </exclusion>
       </exclusions>
     </dependency>
-<!--    <dependency>-->
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot.experimental/spring-boot-thin-layout -->
+    <dependency>
+      <artifactId>spring-boot-thin-layout</artifactId>
+      <groupId>org.springframework.boot.experimental</groupId>
+      <version>1.0.22.RELEASE</version>
+    </dependency>
+    <!--    <dependency>-->
 <!--      <artifactId>spring-restdocs-mockmvc</artifactId>-->
 <!--      <groupId>org.springframework.restdocs</groupId>-->
 <!--      <scope>test</scope>-->
