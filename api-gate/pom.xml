@@ -196,31 +196,15 @@
       <groupId>com.h2database</groupId>
     </dependency>
     <dependency>
-      <artifactId>passay</artifactId>
-      <groupId>org.passay</groupId>
-      <version>${passay.version}</version>
-    </dependency>
-    <dependency>
       <artifactId>guava</artifactId>
       <groupId>com.google.guava</groupId>
       <version>${guava.version}</version>
-    </dependency>
-    <dependency>
-      <artifactId>tika-core</artifactId>
-      <groupId>org.apache.tika</groupId>
-      <version>1.20</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
     <dependency>
       <artifactId>alipay-sdk-java</artifactId>
       <groupId>com.alipay.sdk</groupId>
       <version>3.7.26.ALL</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/com.linkedin.urls/url-detector -->
-    <dependency>
-      <artifactId>url-detector</artifactId>
-      <groupId>com.linkedin.urls</groupId>
-      <version>0.1.17</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5 -->
     <dependency>
