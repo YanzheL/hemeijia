@@ -13,9 +13,9 @@ Parameter       Type      Description
 customer        String    所属客户的用户名
 mark            String    备注
 createdAt       Date      创建时间
+updatedAt       Date      更新时间
 startAt         Date      计划开始时间
 endAt           Date      计划结束时间
-updatedAt       Date      更新时间
 coupon          Coupon    使用的兑换券
 status          String    订单状态 ["已下单", "已接单", "已出发", "使用中", "已完结", "已取消"]
 address         String    服务地址
