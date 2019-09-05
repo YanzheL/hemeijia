@@ -24,7 +24,6 @@ public class User extends BaseEntity implements UserDetails {
   private static final long serialVersionUID = 1L;
 
   @Id
-  @Column(length = 30)
   protected String username;
 
   @Column(nullable = false)
