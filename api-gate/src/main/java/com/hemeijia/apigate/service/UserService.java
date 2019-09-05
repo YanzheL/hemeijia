@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService {
   public User register(UserDto dto) throws RestApiException {
     String username = dto.getUsername();
     if (userRepository.findByUsername(username).isPresent()) {
-      throw new RestEntityExistsException("There is an account with same username or email email");
+      throw new RestEntityExistsException("There is an account with same username");
     }
     final User user = new User();
     BeanUtils.copyProperties(dto, user, "password");

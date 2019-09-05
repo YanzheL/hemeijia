@@ -2,12 +2,14 @@ package com.hemeijia.apigate.web.controller;
 
 import com.hemeijia.apigate.message.RestResponseEntityFactory;
 import com.hemeijia.apigate.message.error.RestApiException;
+import com.hemeijia.apigate.persistence.entity.User;
 import com.hemeijia.apigate.service.UserService;
 import com.hemeijia.apigate.web.dto.UserDto;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,13 +34,16 @@ public class UserController {
 
   @GetMapping
   public ResponseEntity get(String username) throws RestApiException {
-    return RestResponseEntityFactory.success(userService.loadUserByUsername(username));
+    return RestResponseEntityFactory.success((User) (userService.loadUserByUsername(username)));
   }
 
   @PostMapping(value = "/register")
   public ResponseEntity register(@RequestBody UserDto userDto) throws RestApiException {
     LOGGER.debug("Registering user account with information: {}", userDto);
-    return RestResponseEntityFactory.success(userService.register(userDto));
+    return RestResponseEntityFactory.success(
+        userService.register(userDto),
+        HttpStatus.CREATED
+    );
   }
 
 }
