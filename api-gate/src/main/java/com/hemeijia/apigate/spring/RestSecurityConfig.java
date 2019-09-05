@@ -1,6 +1,5 @@
 package com.hemeijia.apigate.spring;
 
-import com.hemeijia.apigate.security.CustomAuthenticationProvider;
 import com.hemeijia.apigate.security.RestAuthenticationEntryPoint;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -51,11 +48,6 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
   public RestSecurityConfig() {
     super();
     SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
-  }
-
-  @Override
-  protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-    auth.authenticationProvider(authProvider());
   }
 
   @Bean
@@ -104,14 +96,6 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
   @Bean
   public PasswordEncoder encoder() {
     return new BCryptPasswordEncoder();
-  }
-
-  @Bean
-  public DaoAuthenticationProvider authProvider() {
-    final CustomAuthenticationProvider authProvider = new CustomAuthenticationProvider();
-    authProvider.setUserDetailsService(userDetailsService);
-    authProvider.setPasswordEncoder(encoder());
-    return authProvider;
   }
 
   @Bean
