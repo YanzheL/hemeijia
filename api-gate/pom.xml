@@ -5,56 +5,6 @@
   <artifactId>api-gate</artifactId>
   <build>
     <plugins>
-      <!--      <plugin>-->
-      <!--        <artifactId>maven-resources-plugin</artifactId>-->
-      <!--        <version>2.7</version>-->
-      <!--        <executions>-->
-      <!--          <execution>-->
-      <!--            <id>copy-resources</id>-->
-      <!--            <phase>prepare-package</phase>-->
-      <!--            <goals>-->
-      <!--              <goal>copy-resources</goal>-->
-      <!--            </goals>-->
-      <!--            <configuration>-->
-      <!--              <outputDirectory>-->
-      <!--                ${project.build.outputDirectory}/static/docs-->
-      <!--              </outputDirectory>-->
-      <!--              <resources>-->
-      <!--                <resource>-->
-      <!--                  <directory>-->
-      <!--                    ${project.build.directory}/generated-docs-->
-      <!--                  </directory>-->
-      <!--                </resource>-->
-      <!--              </resources>-->
-      <!--            </configuration>-->
-      <!--          </execution>-->
-      <!--        </executions>-->
-      <!--      </plugin>-->
-      <!--      <plugin>-->
-      <!--        <artifactId>asciidoctor-maven-plugin</artifactId>-->
-      <!--        <dependencies>-->
-      <!--          <dependency>-->
-      <!--            <artifactId>spring-restdocs-asciidoctor</artifactId>-->
-      <!--            <groupId>org.springframework.restdocs</groupId>-->
-      <!--            <version>${spring-restdocs.version}</version>-->
-      <!--          </dependency>-->
-      <!--        </dependencies>-->
-      <!--        <groupId>org.asciidoctor</groupId>-->
-      <!--        <executions>-->
-      <!--          <execution>-->
-      <!--            <id>generate-docs</id>-->
-      <!--            <phase>prepare-package</phase>-->
-      <!--            <goals>-->
-      <!--              <goal>process-asciidoc</goal>-->
-      <!--            </goals>-->
-      <!--            <configuration>-->
-      <!--              <backend>html</backend>-->
-      <!--              <doctype>book</doctype>-->
-      <!--            </configuration>-->
-      <!--          </execution>-->
-      <!--        </executions>-->
-      <!--        <version>1.5.3</version>-->
-      <!--      </plugin>-->
       <plugin>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <executions>
@@ -140,12 +90,12 @@
       <artifactId>junit-jupiter</artifactId>
       <groupId>org.junit.jupiter</groupId>
       <scope>test</scope>
-      <version>5.5.0-M1</version>
+      <version>5.5.1</version>
     </dependency>
     <!--    <dependency>-->
     <!--      <groupId>org.junit.vintage</groupId>-->
     <!--      <artifactId>junit-vintage-engine</artifactId>-->
-    <!--      <version>5.5.0-M1</version>-->
+    <!--      <version>5.5.1</version>-->
     <!--      <scope>test</scope>-->
     <!--    </dependency>-->
     <dependency>
@@ -196,19 +146,9 @@
       <groupId>com.h2database</groupId>
     </dependency>
     <dependency>
-      <artifactId>passay</artifactId>
-      <groupId>org.passay</groupId>
-      <version>${passay.version}</version>
-    </dependency>
-    <dependency>
       <artifactId>guava</artifactId>
       <groupId>com.google.guava</groupId>
       <version>${guava.version}</version>
-    </dependency>
-    <dependency>
-      <artifactId>tika-core</artifactId>
-      <groupId>org.apache.tika</groupId>
-      <version>1.20</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
     <dependency>
@@ -216,23 +156,11 @@
       <groupId>com.alipay.sdk</groupId>
       <version>3.7.26.ALL</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.linkedin.urls/url-detector -->
-    <dependency>
-      <artifactId>url-detector</artifactId>
-      <groupId>com.linkedin.urls</groupId>
-      <version>0.1.17</version>
-    </dependency>
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5 -->
     <dependency>
       <artifactId>jackson-datatype-hibernate5</artifactId>
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <version>2.9.8</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm -->
-    <dependency>
-      <artifactId>hibernate-search-orm</artifactId>
-      <groupId>org.hibernate</groupId>
-      <version>5.11.1.Final</version>
     </dependency>
   </dependencies>
   <description>Demo project for Spring Boot</description>
@@ -245,47 +173,38 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>2.2.0.BUILD-SNAPSHOT</version> <!-- lookup parent from repository -->
+    <version>2.1.7.RELEASE</version> <!-- lookup parent from repository -->
   </parent>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <url>https://repo.spring.io/snapshot</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
-    </pluginRepository>
-  </pluginRepositories>
+  <!--  <pluginRepositories>-->
+  <!--    <pluginRepository>-->
+  <!--      <id>spring-milestones</id>-->
+  <!--      <name>Spring Milestones</name>-->
+  <!--      <url>https://repo.spring.io/milestone</url>-->
+  <!--    </pluginRepository>-->
+  <!--  </pluginRepositories>-->
 
   <properties>
-    <guava.version>20.0</guava.version>
+    <guava.version>28.1-jre</guava.version>
     <java.version>9</java.version>
-    <passay.version>1.0</passay.version>
+    <!--    <passay.version>1.0</passay.version>-->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!--    <tool.proguard.version>6.0.3</tool.proguard.version>-->
   </properties>
 
-  <repositories>
-    <repository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <url>https://repo.spring.io/snapshot</url>
-    </repository>
-    <repository>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
-    </repository>
-  </repositories>
-  <version>1.0.0-rc1</version>
+  <!--  <repositories>-->
+  <!--    <repository>-->
+  <!--      <id>spring-snapshots</id>-->
+  <!--      <name>Spring Snapshots</name>-->
+  <!--      <snapshots>-->
+  <!--        <enabled>true</enabled>-->
+  <!--      </snapshots>-->
+  <!--      <url>https://repo.spring.io/snapshot</url>-->
+  <!--    </repository>-->
+  <!--    <repository>-->
+  <!--      <id>spring-milestones</id>-->
+  <!--      <name>Spring Milestones</name>-->
+  <!--      <url>https://repo.spring.io/milestone</url>-->
+  <!--    </repository>-->
+  <!--  </repositories>-->
+  <version>0.1.0-SNAPSHOT</version>
 </project>

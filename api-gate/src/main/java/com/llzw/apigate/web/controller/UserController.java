@@ -2,7 +2,6 @@ package com.llzw.apigate.web.controller;
 
 import com.llzw.apigate.message.RestResponseEntityFactory;
 import com.llzw.apigate.message.error.RestApiException;
-import com.llzw.apigate.persistence.entity.User;
 import com.llzw.apigate.service.UserService;
 import com.llzw.apigate.web.dto.UserDto;
 import lombok.Setter;
@@ -10,8 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +30,7 @@ public class UserController {
   @Setter(onMethod_ = @Autowired)
   private UserService userService;
 
-  @GetMapping(value = "/get")
+  @GetMapping
   public ResponseEntity get(String username) throws RestApiException {
     return RestResponseEntityFactory.success(userService.loadUserByUsername(username));
   }
