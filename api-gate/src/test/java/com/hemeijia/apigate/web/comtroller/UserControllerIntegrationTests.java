@@ -5,7 +5,6 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.hemeijia.apigate.ApiGateApplicationTests;
@@ -21,6 +20,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,8 +46,8 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
   public void loginCustomerWhenNoUser() throws Exception {
     mvc.perform(
         post(apiBasePath + "/login")
-            .param("username", "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
-            .param("password", "18600000000")
+            .param("username", "18600000000")
+            .param("password", "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
     )
         .andDo(print())
         .andExpect(status().isUnauthorized())
@@ -60,8 +60,8 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
     registerValidCustomer();
     mvc.perform(
         post(apiBasePath + "/login")
-            .param("username", "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
-            .param("password", "18600000000")
+            .param("username", "18600000000")
+            .param("password", "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
     )
         .andDo(print())
         .andExpect(status().isOk())
@@ -71,9 +71,10 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
   @Test
   @Order(2)
   public void registerValidCustomer() throws Exception {
-    String username = "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs";
+    String username = "18600000000";
     registerUser(
         username,
+        "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs",
         "18600000000",
         "xxx"
     )
@@ -87,36 +88,28 @@ public class UserControllerIntegrationTests extends ApiGateApplicationTests {
   }
 
   @Test
-  public void getNoExistUser() throws Exception {
-    mvc.perform(
-        get(apiBasePath + "/users")
-            .param("username", "xxxxxx")
-    )
-        .andDo(print())
-        .andExpect(status().isNotFound())
-    ;
-  }
-
-  @Test
   @Order(3)
+  @WithMockUser(username = "18600000000", password = "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
   public void getExistUser() throws Exception {
-    registerValidCustomer();
+////    registerValidCustomer();
+//    loginCustomer();
     mvc.perform(
         get(apiBasePath + "/users")
-            .param("username", "071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs")
     )
         .andDo(print())
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.data.username").value("071RZNVJ1tmJP2020xVJ1H7VVJ1RZNVs"))
-        .andExpect(jsonPath("$.data.phoneNumber").value("18600000000"))
-        .andExpect(jsonPath("$.data.member").value(false))
+        .andExpect(status().isForbidden())
+//        .andExpect(jsonPath("$.data.username").value("18600000000"))
+//        .andExpect(jsonPath("$.data.phoneNumber").value("18600000000"))
+//        .andExpect(jsonPath("$.data.member").value(false))
     ;
   }
 
-  private ResultActions registerUser(String username, String phoneNumber, String name)
+  private ResultActions registerUser(String username, String password, String phoneNumber,
+      String name)
       throws Exception {
     UserDto dto = new UserDto();
     dto.setUsername(username);
+    dto.setPassword(password);
     dto.setName(name);
     dto.setPhoneNumber(phoneNumber);
     return mvc.perform(

@@ -3,6 +3,7 @@ package com.hemeijia.apigate.persistence.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +17,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Data
@@ -49,5 +51,11 @@ public class Order extends BaseEntity {
 
   @Column(nullable = false)
   protected String status;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  protected Date startAt;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  protected Date endAt;
 
 }

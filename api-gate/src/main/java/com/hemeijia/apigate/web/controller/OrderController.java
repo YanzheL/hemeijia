@@ -37,7 +37,10 @@ public class OrderController {
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
         orderService
-            .create(currentUser, dto.getName(), dto.getCouponId(), dto.getMark(), dto.getAddress())
+            .create(
+                currentUser, dto.getName(), dto.getCouponId(), dto.getMark(), dto.getAddress(),
+                dto.getStartAt(), dto.getEndAt()
+            )
     );
   }
 

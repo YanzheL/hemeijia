@@ -6,7 +6,11 @@ import lombok.Data;
 @Data
 public class UserDto {
 
+  @NotNull
   protected String username;
+
+  @NotNull
+  protected String password;
 
   @NotNull
   protected String name;

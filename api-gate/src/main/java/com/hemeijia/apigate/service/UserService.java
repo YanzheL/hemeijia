@@ -32,8 +32,7 @@ public class UserService implements UserDetailsService {
     }
     final User user = new User();
     BeanUtils.copyProperties(dto, user, "password");
-    user.setPassword(passwordEncoder.encode(dto.getPhoneNumber()));
-    user.setName(dto.getName());
+    user.setPassword(passwordEncoder.encode(dto.getPassword()));
     user.setEnabled(true);
     return userRepository.save(user);
   }

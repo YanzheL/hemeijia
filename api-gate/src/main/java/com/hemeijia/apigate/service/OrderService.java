@@ -7,6 +7,7 @@ import com.hemeijia.apigate.persistence.dao.OrderRepository;
 import com.hemeijia.apigate.persistence.entity.Coupon;
 import com.hemeijia.apigate.persistence.entity.Order;
 import com.hemeijia.apigate.persistence.entity.User;
+import java.util.Date;
 import java.util.List;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class OrderService {
   private CouponService couponService;
 
   @Transactional
-  public Order create(User customer, String name, Long couponId, String mark, String address)
+  public Order create(User customer, String name, Long couponId, String mark, String address,
+      Date startAt, Date endAt)
       throws RestApiException {
     Coupon coupon;
     if (name == null && couponId == null) {
@@ -44,6 +46,8 @@ public class OrderService {
     order.setMark(mark);
     order.setCoupon(coupon);
     order.setStatus("已下单");
+    order.setStartAt(startAt);
+    order.setEndAt(endAt);
     return orderRepository.save(order);
   }
 

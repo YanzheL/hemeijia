@@ -15,7 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -35,9 +34,6 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Setter(onMethod_ = @Autowired)
   private AuthenticationSuccessHandler successHandler;
-
-  @Setter(onMethod_ = @Autowired)
-  private UserDetailsService userDetailsService;
 
   private AuthenticationFailureHandler failureHandler = new SimpleUrlAuthenticationFailureHandler();
 
