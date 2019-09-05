@@ -5,12 +5,9 @@ import com.llzw.apigate.message.error.RestEntityExistsException;
 import com.llzw.apigate.persistence.dao.UserRepository;
 import com.llzw.apigate.persistence.entity.User;
 import com.llzw.apigate.web.dto.UserDto;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,7 +32,8 @@ public class UserService implements UserDetailsService {
     }
     final User user = new User();
     BeanUtils.copyProperties(dto, user, "password");
-    user.setPassword(passwordEncoder.encode(dto.getPassword()));
+    user.setPassword(passwordEncoder.encode(dto.getPhoneNumber()));
+    user.setName(dto.getName());
     user.setEnabled(true);
     return userRepository.save(user);
   }
