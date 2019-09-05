@@ -164,7 +164,7 @@
     </dependency>
   </dependencies>
   <description>Demo project for Spring Boot</description>
-  <groupId>com.llzw</groupId>
+  <groupId>com.hemeijia</groupId>
   <modelVersion>4.0.0</modelVersion>
 
   <name>api-gate</name>
