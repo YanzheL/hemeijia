@@ -3,6 +3,7 @@ package com.hemeijia.apigate.service;
 import com.hemeijia.apigate.message.error.RestEntityNotFoundException;
 import com.hemeijia.apigate.persistence.dao.CouponRepository;
 import com.hemeijia.apigate.persistence.entity.Coupon;
+import com.hemeijia.apigate.persistence.entity.Package;
 import com.hemeijia.apigate.persistence.entity.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,35 +21,30 @@ public class CouponService {
   private CouponRepository couponRepository;
 
   @Transactional
-  public List<Coupon> create(User customer, String name, float price, int quantity) {
+  public List<Coupon> create(User customer, String name, float price, int quantity, Package pkg) {
     List<Coupon> coupons = new ArrayList<>(quantity);
     for (int i = 0; i < quantity; ++i) {
       Coupon coupon = new Coupon();
       coupon.setCustomer(customer);
       coupon.setName(name);
       coupon.setPrice(price);
+      coupon.setPkg(pkg);
       coupons.add(coupon);
     }
-    coupons.clear();
-    couponRepository.saveAll(coupons).forEach(coupons::add);
-    return coupons;
+    List<Coupon> couponsSaved = new ArrayList<>();
+    couponRepository.saveAll(coupons).forEach(couponsSaved::add);
+    return couponsSaved;
   }
 
-  public List<Coupon> search(User customer, String name) {
-    if (name == null || name.isEmpty()) {
-      return couponRepository.findAllByCustomer(customer).collect(Collectors.toList());
-    } else {
-      return couponRepository.findAllByCustomerAndNameOrderByCreatedAt(customer, name).collect(
-          Collectors.toList());
+  public List<Coupon> search(User customer, String name, boolean nopkg) {
+    Stream<Coupon> all = couponRepository.findAllByCustomer(customer).stream();
+    if (name != null && !name.isEmpty()) {
+      all = all.filter((cp) -> cp.getName().equals(name));
     }
-  }
-
-  public Stream<Coupon> streamSearch(User customer, String name) {
-    if (name == null || name.isEmpty()) {
-      return couponRepository.findAllByCustomer(customer);
-    } else {
-      return couponRepository.findAllByCustomerAndNameOrderByCreatedAt(customer, name);
+    if (nopkg) {
+      all = all.filter((cp) -> cp.getPkg() == null);
     }
+    return all.collect(Collectors.toList());
   }
 
   public Coupon get(User customer, Long id) throws RestEntityNotFoundException {

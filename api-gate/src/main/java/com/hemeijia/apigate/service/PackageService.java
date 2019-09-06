@@ -30,10 +30,11 @@ public class PackageService {
     Package pkg = new Package();
     pkg.setName(name);
     pkg.setPrice(price);
+    pkg.setCustomer(customer);
     List<Coupon> coupons = new ArrayList<>();
 
     for (CoupPack pack : coupPacks) {
-      couponService.create(customer, pack.getName(), 0, pack.getQuantity())
+      couponService.create(customer, pack.getName(), 0, pack.getQuantity(), pkg)
           .forEach(coupons::add);
     }
     pkg.setCoupons(coupons);

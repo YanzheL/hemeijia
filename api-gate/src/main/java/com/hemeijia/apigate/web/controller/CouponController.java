@@ -5,6 +5,7 @@ import com.hemeijia.apigate.message.error.RestApiException;
 import com.hemeijia.apigate.persistence.entity.User;
 import com.hemeijia.apigate.service.CouponService;
 import com.hemeijia.apigate.web.dto.CouponCreateDto;
+import com.hemeijia.apigate.web.dto.CouponSearchDto;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,17 +37,17 @@ public class CouponController {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        couponService.create(currentUser, dto.getName(), dto.getPrice(), 1)
+        couponService.create(currentUser, dto.getName(), dto.getPrice(), 1, null)
     );
   }
 
   @PreAuthorize("hasRole('CUSTOMER')")
   @GetMapping
-  public ResponseEntity search(String name) {
+  public ResponseEntity search(CouponSearchDto dto) {
     User currentUser =
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     return RestResponseEntityFactory.success(
-        couponService.search(currentUser, name)
+        couponService.search(currentUser, dto.getName(), dto.isNopkg())
     );
   }
 

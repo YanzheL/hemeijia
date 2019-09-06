@@ -34,7 +34,12 @@ public class OrderService {
       if (couponId != null) {
         coupon = couponService.get(customer, couponId);
       } else {
-        coupon = couponService.streamSearch(customer, name).findFirst().get();
+        List<Coupon> resu = couponService.search(customer, name, false);
+        if (resu.isEmpty()) {
+          coupon = null;
+        } else {
+          coupon = resu.get(0);
+        }
       }
     }
     if (coupon == null) {

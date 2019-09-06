@@ -44,6 +44,8 @@ public class Coupon extends BaseEntity implements Pricable {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "packageId")
+  @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+  @JsonIdentityReference(alwaysAsId = true)
   protected Package pkg;
 
   @ManyToOne(fetch = FetchType.LAZY)
