@@ -108,7 +108,7 @@ java "-Dspring.profiles.active=test" -jar target/*.jar
 
 * RESTful API Backend
 
-* Angular Single Page Application
+* WeChat Mini-Program
 
 * Travis CI Continuous Integration and Automatic Testing
 

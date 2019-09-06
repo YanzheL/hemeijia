@@ -108,6 +108,8 @@ java "-Dspring.profiles.active=test" -jar target/*.jar
 
 * RESTful API 后端
 
+* 微信小程序
+
 * Travis CI 持续集成与自动化测试
 
 * Docker Hub自动构建
