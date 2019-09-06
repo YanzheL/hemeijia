@@ -10,7 +10,7 @@
 
 此项目后端基于我之前的一个Spring网站[LLZW](https://github.com/YanzheL/llzw)
 
-这是我的一个 ***软件工程*** 课程设计项目。
+这是我和组员的一个 ***软件工程*** 课程设计项目。
 
 **当前项目状态:**
 
@@ -124,9 +124,9 @@ java "-Dspring.profiles.active=test" -jar target/*.jar
 
 - [API文档](https://hemeijia.readthedocs.io)
 
-## 贡献者:
+## 贡献者
 
-#### hemeijia Web 前端:
+#### Hemeijia Web 前端
 
 位于 `miniprogram/` 目录
 
@@ -134,9 +134,7 @@ java "-Dspring.profiles.active=test" -jar target/*.jar
 
 [张志捷](https://github.com/zhangzhijie1998)
 
-张志捷
-
-#### hemeijia 后端和其他辅助代码
+#### Hemeijia 后端和其他辅助代码
 
 位于 `api-gate/` 目录，以及一些其他文件。
 

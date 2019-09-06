@@ -10,7 +10,7 @@ Simple WeChat-miniprogram for online housekeeping services powered by [Spring](h
 
 The backend is based on my previous Spring site [LLZW](https://github.com/YanzheL/llzw)
 
-This is a Spring demo site designated for beginners, which is also my course project of ***Software Engineering*** at HIT.
+This is a Spring demo site designated for beginners, which is also my course project of ***Software Engineering*** at HIT with my team.
 
 **Current project status:**
 
@@ -124,9 +124,9 @@ java "-Dspring.profiles.active=test" -jar target/*.jar
 
 - [API Documentation](https://hemeijia.readthedocs.io)
 
-## Contributors:
+## Contributors
 
-#### Hemeijia Front:
+#### Hemeijia Front
 
 Located in `miniprogram/` directory
 
