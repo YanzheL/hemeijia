@@ -12,7 +12,6 @@ services:
       - "8906:3306"
   backend:
     image: leeyanzhe/hemeijia-api-gate
-    # build: api-gate
     restart: always
     environment:
       SPRING_PROFILES_ACTIVE: dev
@@ -27,14 +26,6 @@ services:
       - "8981:8981"
     depends_on:
       - db
-  web:
-    image: leeyanzhe/hemeijia-web
-    restart: always
-    environment:
-      API_HOST: https://hemeijia.hitnslab.com
-      API_BASE_PATH: /api/v1
-    depends_on:
-      - backend
   proxy:
     image: nginx:alpine
     restart: always

@@ -61,7 +61,7 @@ Two options
   docker run -d -p "8981:8981" leeyanzhe/hemeijia-api-gate
   ```
 
-- Run the production services bundle
+- Run with `docker-compose`
 
   Pull this git repository
 
@@ -69,7 +69,7 @@ Two options
   git clone https://github.com/YanzheL/hemeijia.git
   ```
 
-  Enter the project directory and bring up the whole services bundle
+  Enter the project directory and run
 
   ```shell
   cd hemeijia

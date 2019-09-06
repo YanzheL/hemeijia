@@ -61,7 +61,7 @@
   docker run -d -p "8981:8981" leeyanzhe/hemeijia-api-gate
   ```
 
-- 运行整个系统
+- 使用 `docker-compose` 运行
 
   下载项目源码
 
@@ -69,7 +69,7 @@
   git clone https://github.com/YanzheL/hemeijia.git
   ```
 
-  进入项目目录并启动整个服务包
+  进入项目目录并启动
 
   ```shell
   cd hemeijia
