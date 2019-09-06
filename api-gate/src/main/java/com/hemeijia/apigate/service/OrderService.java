@@ -9,6 +9,8 @@ import com.hemeijia.apigate.persistence.entity.Order;
 import com.hemeijia.apigate.persistence.entity.User;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,8 +58,12 @@ public class OrderService {
     return orderRepository.save(order);
   }
 
-  public List<Order> search(User customer) {
-    return orderRepository.findAllByCustomer(customer);
+  public List<Order> search(User customer, boolean nopkg) {
+    Stream<Order> orders = orderRepository.findAllByCustomer(customer).stream();
+    if (nopkg) {
+      orders = orders.filter((order) -> order.getCoupon().getPkg() == null);
+    }
+    return orders.collect(Collectors.toList());
   }
 
   public Order get(User customer, Long id) throws RestEntityNotFoundException {
