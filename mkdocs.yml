@@ -5,7 +5,7 @@ site_description: Hemeijia
 site_author: Yanzhe Lee
 edit_uri: ""
 theme:
-  name: rtd-dropdown
+  name: readthedocs
   # name: material
   # name: ivory
   # highlightjs: true
