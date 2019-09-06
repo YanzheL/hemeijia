@@ -1,5 +1,6 @@
 package com.hemeijia.apigate.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -16,9 +17,11 @@ public abstract class BaseEntity implements Serializable {
   @CreationTimestamp
   @Column(nullable = false, updatable = false)
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   protected Date createdAt;
 
   @UpdateTimestamp
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   protected Date updatedAt;
 }

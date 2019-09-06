@@ -7,6 +7,15 @@
     <plugins>
       <plugin>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <!--        <dependencies>-->
+        <!--          &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.boot.experimental/spring-boot-thin-layout &ndash;&gt;-->
+        <!--          <dependency>-->
+        <!--            <artifactId>spring-boot-thin-layout</artifactId>-->
+        <!--            <groupId>org.springframework.boot.experimental</groupId>-->
+        <!--            <version>1.0.22.RELEASE</version>-->
+        <!--          </dependency>-->
+        <!--        </dependencies>-->
         <executions>
           <execution>
             <configuration>
@@ -20,7 +29,6 @@
             </goals>
           </execution>
         </executions>
-        <groupId>org.springframework.boot</groupId>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -80,11 +88,11 @@
         </exclusion>
       </exclusions>
     </dependency>
-<!--    <dependency>-->
-<!--      <artifactId>spring-restdocs-mockmvc</artifactId>-->
-<!--      <groupId>org.springframework.restdocs</groupId>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <artifactId>spring-restdocs-mockmvc</artifactId>-->
+    <!--      <groupId>org.springframework.restdocs</groupId>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
     <dependency>
       <artifactId>junit-jupiter</artifactId>
@@ -152,11 +160,11 @@
       <version>${guava.version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
-<!--    <dependency>-->
-<!--      <artifactId>alipay-sdk-java</artifactId>-->
-<!--      <groupId>com.alipay.sdk</groupId>-->
-<!--      <version>3.7.26.ALL</version>-->
-<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <artifactId>alipay-sdk-java</artifactId>-->
+    <!--      <groupId>com.alipay.sdk</groupId>-->
+    <!--      <version>3.7.26.ALL</version>-->
+    <!--    </dependency>-->
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5 -->
     <dependency>
       <artifactId>jackson-datatype-hibernate5</artifactId>

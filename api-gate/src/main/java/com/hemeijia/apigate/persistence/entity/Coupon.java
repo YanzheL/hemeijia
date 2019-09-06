@@ -1,5 +1,6 @@
 package com.hemeijia.apigate.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -38,12 +39,15 @@ public class Coupon extends BaseEntity implements Pricable {
   protected boolean paid;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   protected Date usedAt;
 
   protected boolean valid = true;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "packageId")
+  @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+  @JsonIdentityReference(alwaysAsId = true)
   protected Package pkg;
 
   @ManyToOne(fetch = FetchType.LAZY)

@@ -1,9 +1,11 @@
 package com.hemeijia.apigate.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -41,6 +44,8 @@ public class Order extends BaseEntity {
   @Column(nullable = false)
   protected String address;
 
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "couponId", referencedColumnName = "id")
   protected Coupon coupon;
 
   protected String mark;
@@ -53,9 +58,11 @@ public class Order extends BaseEntity {
   protected String status;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   protected Date startAt;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   protected Date endAt;
 
 }
