@@ -126,9 +126,11 @@ java "-Dspring.profiles.active=test" -jar target/*.jar
 
 #### hemeijia Web 前端:
 
-位于 `front/` 目录
+位于 `miniprogram/` 目录
 
-[@WennyXY](https://github.com/WennyXY)
+[完颜馨叶](https://github.com/WennyXY)
+
+[张志捷](https://github.com/zhangzhijie1998)
 
 张志捷
 

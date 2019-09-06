@@ -126,15 +126,15 @@ java "-Dspring.profiles.active=test" -jar target/*.jar
 
 ## Contributors:
 
-#### hemeijia Front:
+#### Hemeijia Front:
 
-Located in `front/` directory
+Located in `miniprogram/` directory
 
-[@WennyXY](https://github.com/WennyXY)
+[Xinye Wanyan](https://github.com/WennyXY)
 
-Zhang Zhijie
+[Zhijie Zhang](https://github.com/zhangzhijie1998)
 
-#### hemeijia Backend and Misc.
+#### Hemeijia Backend and Misc.
 
 Located in `api-gate/` directory together with other misc files.
 
