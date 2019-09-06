@@ -8,6 +8,14 @@
       <plugin>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <groupId>org.springframework.boot</groupId>
+        <dependencies>
+          <!-- https://mvnrepository.com/artifact/org.springframework.boot.experimental/spring-boot-thin-layout -->
+          <dependency>
+            <artifactId>spring-boot-thin-layout</artifactId>
+            <groupId>org.springframework.boot.experimental</groupId>
+            <version>1.0.22.RELEASE</version>
+          </dependency>
+        </dependencies>
         <executions>
           <execution>
             <configuration>
@@ -79,12 +87,6 @@
           <groupId>junit</groupId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework.boot.experimental/spring-boot-thin-layout -->
-    <dependency>
-      <artifactId>spring-boot-thin-layout</artifactId>
-      <groupId>org.springframework.boot.experimental</groupId>
-      <version>1.0.22.RELEASE</version>
     </dependency>
     <!--    <dependency>-->
     <!--      <artifactId>spring-restdocs-mockmvc</artifactId>-->
