@@ -1,0 +1,21 @@
+version: 2
+formats:
+  - epub
+  - pdf
+  - htmlzip
+python:
+   version: 3.7
+   install:
+      - requirements: docs/requirements.txt
+      - method: pip
+        path: .
+        extra_requirements:
+            - docs
+   system_packages: true
+build:
+  image: latest
+python:
+  version: 3.7
+mkdocs:
+  configuration: mkdocs.yml
+  fail_on_warning: false
