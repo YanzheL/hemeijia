@@ -22,7 +22,7 @@ Backend: Developing.
 
 | Branch     | Status                                                    |
 | ---------- | --------------------------------------------------------- |
-| **master** | ![](https://travis-ci.org/YanzheL/hemeijia.svg?branch=master) [![](https://readthedocs.org/projects/hemeijia/badge/?version=stable)](https://hemeijia.readthedocs.io/zh_CN/stable/?badge=stable) |
+| **master** | ![](https://travis-ci.org/YanzheL/hemeijia.svg?branch=master) [![](https://readthedocs.org/projects/hemeijia/badge/?version=master)](https://hemeijia.readthedocs.io/zh_CN/stable/?badge=master) |
 | **dev**    | ![](https://travis-ci.org/YanzheL/hemeijia.svg?branch=dev) [![](https://readthedocs.org/projects/hemeijia/badge/?version=latest)](https://hemeijia.readthedocs.io/zh_CN/latest/?badge=latest) |
 
 
