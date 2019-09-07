@@ -113,4 +113,4 @@
 
 [通用异常](generals.md)
 
-Page last revised on: {{ git_revision_date }}
+<!-- Page last revised on: {{ git_revision_date }} -->

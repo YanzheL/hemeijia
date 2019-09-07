@@ -28,4 +28,4 @@
     登陆成功: 返回HTTP状态码200
     登录失败: 返回其他状态码
 
-Page last revised on: {{ git_revision_date }}
+<!-- Page last revised on: {{ git_revision_date }} -->
