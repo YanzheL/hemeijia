@@ -18,6 +18,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hemeijia_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: HIThemeijia-dev!
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MariaDB10Dialect
       # SPRING_DATASOURCE_URL: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
       # SPRING_DATASOURCE_USERNAME: sa
       # SPRING_DATASOURCE_PASSWORD: sa
