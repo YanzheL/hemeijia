@@ -1,0 +1,7 @@
+<!--pages/function/wardrobePackage/packageDetail/index.wxml-->
+<view class="imageView">
+<image class="image1" src="http://media.jiazhengye.cn/%E8%A1%A3%E6%9F%9C%E6%94%B6%E7%BA%B3%20%E6%8B%B7%E8%B4%9D%202.png" mode="widthFix"></image>
+</view>
+<view class='add_btn'>
+<button bindtap="btn" class='btn'>￥2396立即支付</button>
+</view>

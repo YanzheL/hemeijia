@@ -1,0 +1,4 @@
+<!--pages/function/wardrobePackage/index.wxml-->
+<navigator class="imageView" url="packageDetail/index?type='0101'">
+<image class="image1" src="http://media.jiazhengye.cn/phpEB6YjV" mode="widthFix"></image>
+</navigator>

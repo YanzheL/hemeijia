@@ -1,0 +1,58 @@
+<!--pages/MainInterface/order/index.wxml-->
+  <view class="tabarr" style="display: flex;flex-direction:row;">
+    <view class="change1" bindtap="change1" style="color:{{color1}};height:100rpx;width:50%;">服务购买记录</view>
+    <view class="change2" bindtap="change2" style="color:{{color2}};height:100rpx;width:50%;">套餐购买记录</view>
+  </view>
+<view class="weui-form-preview" wx:for="{{orderList}}" wx:if="{{change==1}}">
+  <view class="weui-form-preview__hd">
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">{{item.createdAt}} </view>
+      <view class="weui-form-preview__value_in-hd">订单编号：{{item.id}}</view>
+    </view>
+  </view>
+  <view class="weui-form-preview__bd">
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">{{item.coupon.name}}</view>
+      <view class="weui-form-preview__value">{{item.status}}</view>
+    </view>
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">￥{{item.coupon.price}}</view>
+      <view class="weui-form-preview__value">{{item.createdAt}}</view>
+    </view>
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label"></view>
+    </view>
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">{{item.address}}</view>
+    </view>
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">备注</view>
+      <view class="weui-form-preview__value">{{item.mark}}</view>
+    </view>
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">评价</view>
+      <view class="weui-form-preview__value">{{item.comment==null?'':item.comment}}</view>
+    </view>
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">评分</view>
+      <view class="weui-form-preview__value">{{item.rate==null?'':item.rate}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-form-preview" wx:for="{{packageList}}" wx:if="{{change==2}}">
+  <view class="weui-form-preview__hd">
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">{{item.createdAt}} </view>
+      <view class="weui-form-preview__value_in-hd">剩余数量:{{item.coupons.length}}</view>
+    </view>
+  </view>
+  <view class="weui-form-preview__bd">
+    <view class="weui-form-preview__item">
+      <view class="weui-form-preview__label">{{item.name}}</view>
+    </view>
+
+  </view>
+</view>
+
+<i-load-more tip="暂无更多数据" loading="{{ false }}" />

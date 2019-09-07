@@ -1,0 +1,79 @@
+<!--pages/MainInterface/personalCenter/index.wxml-->
+<view hidden="{{showFlag==2}}" wx:if="{{showFlag==1}}" class="class1">
+  <view class="class2">
+    <view class="image1">
+      <image class="image" src="/static/logo.png" mode="aspectFill"></image>
+    </view>
+  </view>
+  <view class="tabarr" style="display: flex;flex-direction:row;">
+    <view class="change1" bindtap="change1" style="color:{{color1}};height:100rpx;width:50%;">登录</view>
+    <view class="change2" bindtap="change2" style="color:{{color2}};height:100rpx;width:50%;">注册</view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput="getName" placeholder="请输入姓氏" />
+      </view>
+    </view>
+    <radio-group class="block" bindchange="radioChange">
+      <view class="cu-form-group">
+        <view class="title"></view>
+        <view>
+          先生
+          <radio checked="true" value="male" class="blue margin-left-sm"></radio>
+          女士
+          <radio class="red margin-left-sm" value="female"></radio>
+        </view>
+      </view>
+    </radio-group>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput="getPhone" type="number" maxlength="12" placeholder="请输入手机号" />
+      </view>
+      <!-- <view class="weui-cell__ft">
+        <view class="weui-vcode-btn">获取验证码</view>
+      </view> -->
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput="getPassword" type="password" maxlength="20" placeholder="请输入密码" />
+      </view>
+      <!-- <view class="weui-cell__ft">
+        <view class="weui-vcode-btn">获取验证码</view>
+      </view> -->
+    </view>
+    <!-- <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入验证码" />
+      </view>
+    </view> -->
+  </view>
+  <i-button wx:if="{{change==1}}" bind:click="handleClick1" type="primary" shape="circle">立即登录</i-button>
+  <i-button wx:if="{{change==2}}" bind:click="handleClick2" type="primary" shape="circle">立即注册</i-button>
+</view>
+<view hidden="{{showFlag==1}}" wx:if="{{showFlag==2}}" class="class1">
+  <view class="class3">
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+  </view>
+  <i-panel class="cell-panel-demo">
+    <i-cell title="线下门店" value="威海宫松岭路235号C座809室">
+      <i-icon type="coordinates" slot="icon" />
+    </i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell bind:click="tapfunc2" title="vip专属服务热线" value="13863172789">
+      <i-icon type="customerservice" slot="icon" />
+    </i-cell>
+  </i-panel>
+  <i-panel class="cell-panel-demo">
+    <i-cell title="点击右上角可以将小程序分享给朋友哦~" value="">
+      <i-icon type="like" slot="icon" />
+    </i-cell>
+  </i-panel>
+</view>

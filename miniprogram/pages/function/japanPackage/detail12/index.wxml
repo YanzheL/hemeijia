@@ -1,0 +1,8 @@
+<!--pages/function/japanPackage/detail12/index.wxml-->
+<view class="imageView">
+<image class="image1" src="http://media.jiazhengye.cn/%E6%97%A5%E5%BC%8F%E4%BF%9D%E6%B4%8112%E6%AC%A1.png" mode="widthFix"></image>
+</view>
+<view class='add_btn'>
+<button bindtap="btn" class='btn'>￥2628立即支付</button>
+</view>
+

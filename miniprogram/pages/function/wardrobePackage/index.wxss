@@ -1,0 +1,7 @@
+/* pages/function/wardrobePackage/index.wxss */
+.image1{
+  width:100%;
+}
+.imageView{
+  width:100%;
+}

@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/MainInterface/orderPage/index",
+    "pages/MainInterface/personalCenter/index",
+    "pages/MainInterface/homePage/index",
+    "pages/function/japanClean/perchaseDetail/index",
+    "pages/function/function",
+    "pages/function/detail/detail",
+    "pages/function/orderGeneration/orderGeneration",
+    "pages/function/japanPackage/index",
+    "pages/function/wardrobePackage/index",
+    "pages/function/wardrobePackage/packageDetail/index",
+    "pages/function/japanPackage/detail12/index",
+    "pages/function/japanPackage/detail24/index",
+    "pages/function/japanPackage/detail4/index",
+    "pages/function/japanPackage/detail48/index",
+    "pages/function/packageGeneration/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "荷美家",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#CFCFCF",
+    "selectedColor": "#2287e3",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/MainInterface/homePage/index",
+        "text": "首页",
+        "iconPath": "/static/icon/home.png",
+        "selectedIconPath": "/static/icon/home0.png"
+      },
+      {
+        "pagePath": "pages/MainInterface/orderPage/index",
+        "text": "订单中心",
+        "iconPath": "/static/icon/order.png",
+        "selectedIconPath": "/static/icon/order0.png",
+        "position": "top"
+      },
+      {
+        "pagePath": "pages/MainInterface/personalCenter/index",
+        "text": "个人中心",
+        "iconPath": "/static/icon/personalCenter.png",
+        "selectedIconPath": "/static/icon/personalCenter0.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
