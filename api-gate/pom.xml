@@ -145,10 +145,11 @@
       <groupId>org.projectlombok</groupId>
       <optional>true</optional>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
     <dependency>
-      <artifactId>mysql-connector-java</artifactId>
-      <groupId>mysql</groupId>
-      <version>8.0.15</version>
+      <artifactId>mariadb-java-client</artifactId>
+      <groupId>org.mariadb.jdbc</groupId>
+      <version>1.2.0</version>
     </dependency>
     <dependency>
       <artifactId>h2</artifactId>
