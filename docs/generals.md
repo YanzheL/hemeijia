@@ -54,7 +54,7 @@
 
 | HTTP状态码 | 异常类型                   | 描述                 |
 | ---------- | -------------------------- | -------------------- |
-| 400        | API.INVALID_PARAMETER      | 未找到指定ID的兑换券 |
+| 400        | API.INVALID_PARAMETER      | 请求参数错误 |
 | 403        | API.SECURITY.ACCESS_DENIED | 未授权访问           |
 
 <!-- Page last revised on: {{ git_revision_date }} -->
