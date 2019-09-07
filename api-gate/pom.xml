@@ -88,12 +88,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <!--    <dependency>-->
-    <!--      <artifactId>spring-restdocs-mockmvc</artifactId>-->
-    <!--      <groupId>org.springframework.restdocs</groupId>-->
-    <!--      <scope>test</scope>-->
-    <!--    </dependency>-->
-    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
     <dependency>
       <artifactId>junit-jupiter</artifactId>
       <groupId>org.junit.jupiter</groupId>
@@ -160,13 +154,6 @@
       <groupId>com.google.guava</groupId>
       <version>${guava.version}</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
-    <!--    <dependency>-->
-    <!--      <artifactId>alipay-sdk-java</artifactId>-->
-    <!--      <groupId>com.alipay.sdk</groupId>-->
-    <!--      <version>3.7.26.ALL</version>-->
-    <!--    </dependency>-->
-    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5 -->
     <dependency>
       <artifactId>jackson-datatype-hibernate5</artifactId>
       <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -194,5 +181,5 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.9.0-SNAPSHOT</version>
 </project>
