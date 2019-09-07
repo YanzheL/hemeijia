@@ -8,22 +8,21 @@ services:
       - maria_db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: HIThemeijia-dev!
-    ports:
-      - "8906:3306"
+    # ports:
+    #   - "8906:3306"
   backend:
     image: leeyanzhe/hemeijia-api-gate
     restart: always
     environment:
       SPRING_PROFILES_ACTIVE: dev
-      # SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hemeijia_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8
-      # SPRING_DATASOURCE_USERNAME: root
-      # SPRING_DATASOURCE_PASSWORD: HIThemeijia-dev!
-      SPRING_DATASOURCE_URL: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-      SPRING_DATASOURCE_USERNAME: sa
-      SPRING_DATASOURCE_PASSWORD: sa
-    command: [ "java", "-server", "-XX:+HeapDumpOnOutOfMemoryError", "-Xmx500m", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseZGC", "-jar", "api-gate.jar" ]
-    ports:
-      - "8981:8981"
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hemeijia_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: HIThemeijia-dev!
+      # SPRING_DATASOURCE_URL: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+      # SPRING_DATASOURCE_USERNAME: sa
+      # SPRING_DATASOURCE_PASSWORD: sa
+    # ports:
+    #   - "8981:8981"
     depends_on:
       - db
   proxy:
@@ -36,7 +35,7 @@ services:
       - SSL_POLICY=Mozilla-Modern
       - HTTPS_METHOD=noredirect
     depends_on:
-      - web
+      - backend
 
 volumes:
   maria_db:
