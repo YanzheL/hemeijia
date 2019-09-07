@@ -15,7 +15,7 @@ services:
     restart: always
     environment:
       SPRING_PROFILES_ACTIVE: dev
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hemeijia_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/hemeijia_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: HIThemeijia-dev!
       SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MariaDB10Dialect
@@ -24,7 +24,7 @@ services:
       # SPRING_DATASOURCE_PASSWORD: sa
     # ports:
     #   - "8981:8981"
-    depends_on:
+    links:
       - db
   proxy:
     image: nginx:alpine
