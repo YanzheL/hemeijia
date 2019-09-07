@@ -1,0 +1,63 @@
+<!--pages/MainInterface/homePage/index.wxml-->
+<swiper bindchange="swiperChange" indicator-dots="{{indicatorDots}}" autoplay="true" interval="5000" circular="true" duration="1000">
+  <block wx:for="{{imgUrls}}" wx:key>
+    <swiper-item>
+      <view class="imageview">
+        <image src="{{item}}" bindtap="swiperClick" class="slide-image" />
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+  <!-- <navigator url="{{item.url}}"> -->
+  <navigator url="/pages/function/function?id={{item.id}}&type={{item.name}}">
+    <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      <image style="width: 90rpx; height: 90rpx;" src="{{item.icon}}">
+      </image>
+
+      <!-- <view class="cu-tag badge" wx:if="{{item.badge!=0}}"> -->
+      <!-- <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block> -->
+      <!-- </view> -->
+    </view>
+    <text>{{item.name}}</text>
+    </navigator>
+  </view>
+</view>
+
+<navigator class="icon-wraptop1" url="/pages/function/wardrobePackage/index">
+  <view class="icon-itemtop">
+    <image style="width: 95%; height: 150rpx;" src="http://media.jiazhengye.cn/phpJIlW0L"></image>
+  </view>
+</navigator>
+
+<navigator class="icon-wraptop1" url="/pages/function/japanPackage/index">
+  <view class="icon-itemtop">
+    <image style="width: 95%; height: 150rpx;" src="http://media.jiazhengye.cn/phpLegwb2"></image>
+  </view>
+</navigator>
+
+<view class="icon-wraptop">
+  <view class="icon-itemtop">
+    <image style="width: 95%; height: 80rpx;" src="http://media.jiazhengye.cn/php9Lsry2"></image>
+  </view>
+</view>
+
+<view class="icon-wraptop">
+  <view class="icon-itemtop">
+    <image style="width: 95%; height: 80rpx;" src="http://media.jiazhengye.cn/phpBWfbLu"></image>
+  </view>
+</view>
+
+<navigator class="icon-wraptop2" url="/pages/function/function?id=4&type='开荒保洁'">
+
+    <image style="width: 95%; height: 180rpx;" src="http://media.jiazhengye.cn/phpCkLXIm"></image>
+
+</navigator>
+
+<navigator class="icon-wraptop2" url="/pages/function/function?id=8&type='其他''">
+
+    <image style="width: 95%; height: 180rpx;" src="http://media.jiazhengye.cn/php6ucKR2"></image>
+
+</navigator>

@@ -1,0 +1,7 @@
+<!--pages/function/japanClean/japanDetail/index.wxml-->
+<view class="imageView">
+  <image class="image1" src="{{service.image}}" mode="widthFix"></image>
+</view>
+<view class='add_btn'>
+  <button bindtap="btn" class='btn'>{{service.price}}</button>
+</view>

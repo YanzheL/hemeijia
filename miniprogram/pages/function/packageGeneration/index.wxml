@@ -1,0 +1,13 @@
+<!--pages/function/packageGeneration/index.wxml-->
+<form>
+  <view class="cu-form-group">
+    <view class="title">服务类型</view>
+    <input disabled placeholder="{{serviceDetail.name}}"></input>
+  </view>
+  <view class="cu-form-group margin-top">
+    <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="getRemark" placeholder="补充备注说明"></textarea>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="payfunction">立即支付￥ {{serviceDetail.price}}</button>
+  </view>
+</form>

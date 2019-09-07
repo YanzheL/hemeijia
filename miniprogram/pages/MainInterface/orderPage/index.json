@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-load-more": "../../component/iview-ui/load-more/index"
+    },
+  "navigationBarTitleText": "订单中心",
+  "navigationBarBackgroundColor": "#f8f8f9",
+  "navigationBarTextStyle": "black"
+}

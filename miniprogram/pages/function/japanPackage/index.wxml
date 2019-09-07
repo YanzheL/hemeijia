@@ -1,0 +1,4 @@
+<!--pages/function/japanPackage/index.wxml-->
+<navigator wx:for="{{iconList}}" class="imageView" url="{{item.url}}">
+<image class="image1" src="{{item.picsrc}}" mode="widthFix"></image>
+</navigator>
