@@ -25,7 +25,7 @@ services:
     command: [ "java", "-server", "-XX:+HeapDumpOnOutOfMemoryError", "-Xmx500m", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseZGC", "-Dspring.profiles.active=dev", "-jar", "app.jar" ]
     # ports:
     #   - "8981:8981"
-    links:
+    depends_on:
       - db
   proxy:
     image: nginx:alpine
